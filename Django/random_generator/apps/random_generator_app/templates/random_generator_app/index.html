@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+    <style>
+        #wrapper{
+            text-align: center;
+            border: 2px solid black;
+            height: 90vh;
+            background: url('http://iruntheinternet.com/lulzdump/images/gifs/spiderman-fixes-jamie-foxx-hair-electro-13959631558.gif');
+
+        }
+    
+        #box_container{
+            text-align: center;
+            border: 2px solid black;
+            display: inline-flex;
+            width: 200px;
+            color: aquamarine;
+
+        }
+        body{
+            background-color: black;
+        }
+        #green{
+            color: aquamarine;
+        }
+    </style>
+
+
+</head>
+
+
+
+<body>
+    <div id="wrapper" id="green">
+    <!-- this is how you use a session varible in django -->
+    <h1 id="green">Random word (attempt #{{request.session.counter}} )</h1>
+
+    <div id="box_container" >
+        {{new_word}}
+    </div>
+
+    <form action="random_word/" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Generate">
+        
+    </form>
+    
+    <form action="/reset">
+        {% csrf_token %}
+        <input type="submit" value="reset">
+    </form>
+</div>
+
+</body>
+</html>

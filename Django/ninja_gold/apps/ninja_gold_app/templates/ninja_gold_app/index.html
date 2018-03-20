@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ninja Gold</title>
+
+    <!-- load the css files -->
+  
+    {% load staticfiles %}
+
+    <link rel="stylesheet" href="{% static 'ninja_gold_app/index.css'%}">
+</head>
+<body>
+<!-- entire content is in the wrapper -->
+    <div id="wrapper">
+<!--  beginning of heder section  -->
+       <div id="header">
+           <p>Your Gold :  </p>
+            <div id="holding_number"> {{request.session.gold}}
+            <p>gold_found {{request.session.gold_found}}</p>    
+            
+            
+            </div>
+            <!-- {{request.session.farm}} -->
+        </div> 
+
+    <!-- beginning of middle section -->
+        <div id="middle_section">
+
+            <div id="set_content">
+                    <div id="inside_content">
+                        <h3>Farm</h3><br>
+                        <p>(earn 10-20 golds)</p><br>
+                        <form action="process_gold"  method="post">
+                                {% csrf_token %}
+                            <input type="hidden" name="gold_found_farm">
+                            <input type="submit" value="Find Gold">
+                        </form>
+                            
+                        
+                    </div>
+                </div>
+            <div id="set_content">
+                <div id="inside_content">
+                    <h3>cave</h3><br>
+                    <p>(earn 5-10 golds)</p><br>
+                    <form action="/process_gold" method="POST">
+                        <input type="hidden" name="cave">
+                        <input type="button" value="Find Gold">
+                    </form>
+                        
+                </div>
+            </div>
+            <div id="set_content">
+                        <div id="inside_content">
+                            <h3>House</h3><br>
+                            <p>(earn 2-5 golds)</p><br>
+                            <form action="/process_gold" method="POST">
+                                <input type="hidden" name="house">
+                                <input type="button" value="Find Gold">
+                            </form>
+                                
+                    </div>
+            </div>
+            <div id="set_content">
+                    <div id="inside_content">
+                        <h3>Casino</h3><br>
+                        <p>(earn/ takes 0-10 golds)</p><br>
+                        <form action="/process_gold" method="POST">
+                            <input type="hidden" name="casino">
+                            <input type="button" value="Find Gold">
+                        </form>
+                        
+                </div>
+            </div>       
+        </div> 
+       <!-- beginning of footer section  -->
+       <p>Activites</p>
+        <div id="footer">
+            {{farm_container}}
+            <p> Earned {{request.session.gold_found_farm}} golds from farm! </p><br>
+            <p> Earned {{request.session.gold_found_farm}} golds from farm! </p>
+            <p> Earned {{request.session.gold_found_farm}} golds from farm! </p>
+
+
+        </div> 
+
+
+        </div>
+
+    
+</body>
+</html>

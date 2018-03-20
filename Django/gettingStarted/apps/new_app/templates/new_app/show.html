@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>show</title>
+    <style>
+        #tabledata{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- show page  -->
+    <div >   
+    <h2>show user page </h2>
+    <table id="tabledata">
+        <tr>
+            <th>Name: </th> 
+            <th>email : </th>
+            <th>password</th>
+        </tr>
+    </table>
+        <tr>  
+            <td> {{name}}  </td>
+            <td> {{email}}  </td>
+            <td> {{password}}  </td>
+        </tr>
+    </div>
+    <form action="/update" method="POST">
+        {% csrf_token %}
+        Name:<input type="text" name="name">
+        Email:<input type="text" name="email">
+        Password:<input type="password" name="password">
+        <input type="submit" value="update">
+    </form>
+
+</body>
+</html>

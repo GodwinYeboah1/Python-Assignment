@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style >
+        #errors{
+
+        }
+
+    
+    </style>
+</head>
+<body>
+        <div id="header">
+          <h1><i>Welcome</i></h1>
+        </div>
+    
+    <fieldset >
+        <legend>Register</legend>
+        <form action="/register" method="POST">
+            {% csrf_token %}
+        Name  : <input type="text" name="username"><br>
+        Allias : <input type="text" name="allias"><br>
+        Email : <input type="text" name="email"><br>
+        Password : <input type="password" name="password"><br>
+        ConfirmPw :<input type="password" name="confirm_password"><br>
+                    <input type="submit" value="Register">
+        </form>
+    </fieldset>
+
+    <fieldset >
+            <legend>Login</legend>
+            <form action="/login" method="POST">
+                {% csrf_token %}
+            Email : <input type="text" name="email"><br>
+            Password : <input type="text" name="password"><br>
+            <input type="submit" value="login">
+            </form>
+    </fieldset>
+    {% if message %}
+        <ul class="messages">
+            {%for message in messages %}
+                <li>{%if messages.tags %}
+                     class="{{message.tags}}" 
+                      {%endif %}>
+                    {{ message}}
+                </li>
+            {%endfor%}
+        </ul>
+            {%endif%}
+
+    
+
+    
+</body>
+</html>

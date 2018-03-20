@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>time_display</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #wrapper{
+           margin-left:300px;   
+
+        }
+    #title{
+        border: 2px solid black;
+        border-radius: 5px;
+        width: 300px;
+        margin-left: 50px;
+        background-color: bisque;
+      
+        
+    }
+    #display_content{
+        border:  2px solid black;
+        border-radius: 5px;
+        width: 400px;
+        margin-top: 20px;
+        background-color: bisque;
+    }
+    body{
+        background-color: brown;
+    }
+
+    </style>
+
+</head>
+<body>
+    <div id="wrapper">
+        <div id="title">
+            <h3>The current time and date</h3>
+              <h4>{{current}}</h4>  
+        </div>
+        <div id="display_content">
+            <!-- made up time and date bellow -->
+                <h2>{{date}}</h2>
+            
+            <br>
+                <h2>{{time}} </h2>
+               
+            <br>
+            
+        </div>
+    </div>
+
+    
+</body>
+</html>

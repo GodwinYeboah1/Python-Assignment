@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blogs</title>
+</head>
+<body>
+    
+    <form action="/blogs/create" method="post">
+        <!-- proctect your website from getting span on beware of robots making(POST)on your website -->
+        {% csrf_token %}
+        Blog Name: <input type="text" name="name" placeholder="blog name">
+        Description: <textarea name="desc" placeholder="description"></textarea>
+        <input type="submit" value="submit">
+    </form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>quotes</title>
+
+
+    <style>
+    #quotable_quote{
+        border: 2px black solid;
+
+    }
+    
+    </style>
+</head>
+<body>
+
+ <h3>Welcome, {{user.name}} </h3>
+    <a href="/logout"> logout</a>
+ <h5>Contribute a quote</h5>
+    <form action="/check_quote" method="POST">
+        {% csrf_token %}
+        <label for="quote_by">
+        quoted By: <input type="text" name="quote_by">
+        </label><br>
+        <label for="messages">
+            messages:<br> <textarea name="messages" id="" cols="30" rows="10"></textarea>
+        </label><br>
+        <input type="submit" value="submit">
+    </form>
+
+
+
+
+    <h4>quotes</h4>
+    <textarea name="quote_by" id="" cols="30" rows="10">
+    
+        {%for i in response%}
+            {{request.session.quote_by}}: 
+          
+            {{request.session.messages}}
+        {%endfor%}
+    </textarea>
+
+    <h4>favorite</h4>
+    <textarea name="favorite" id="" cols="30" rows="10">
+
+        </textarea>
+    
+</body>
+</html>

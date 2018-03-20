@@ -1,0 +1,57 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: rgb(211, 101, 101)
+}
+#wrapper{
+    
+    margin-top: 20px;
+    border: 2px solid black;
+    height: 100vh;
+    padding: 20px;
+    background: url('http://bestanimations.com/Text/upliftingquotes/live-the-life-you-imagined-positive-inspiration-gif.gif');
+}
+#reigsterForm{
+    color: rgb(194, 191, 191);
+    font-family: Courier New, Courier, monospace;
+    font-size: 14px;
+    height: 300px;
+    width: 300px;
+    padding: 10px;
+    background-color: rgb(58, 52, 52);
+    border-radius: 10px;
+    /* display: inline-block; */
+}
+#loginform{
+    height: 200px;
+    width: 300px;
+    margin-top: -100px;
+    padding: 10px;
+    color: rgb(194, 191, 191);
+    font-family: Courier New, Courier, monospace;
+    font-size: 12px;
+    background-color: rgb(58, 52, 52);
+    border-radius: 10px;
+}
+#form{
+    display: inline-block;
+    height: 300px;
+}
+#form2{
+    display: inline-block;
+    margin-left: 20px;
+    /* height: 300vh;
+    width: 300px; */
+}
+#orange{
+    color: coral;
+}
+.redtext{
+    color: coral;
+}
+#inblock{
+    display: inline-block;
+
+}

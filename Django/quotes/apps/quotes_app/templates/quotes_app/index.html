@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {%load static %}
+    <link rel="stylesheet" href="{% static 'quotes_app/index.css'%}">
+
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <h1 id="orange"> Welcome</h1><br>
+        
+        <form action="{%url 'validate'%}" method="POST" id="form">
+                {% csrf_token %}
+        <fieldset id="reigsterForm">
+            <legend>Register</legend>
+            <label for="username">
+            Name:   <input type="text" name="userName">
+            </label><br>
+            <label for="alias">
+             Alias:<input type="text" name="alias">
+            </label><br>
+            <label for="email">
+            Email:  <input type="text" name="email">
+             </label><br>
+            <label for="password">
+            Password: <input type="password" name="password">
+            </label><br>
+            <label for="confirm">
+            confirm Password: <input type="password" name="confirm_password">
+            </label><br>
+            <label for="date">
+             Date of Birth   <input type="date" name="date_of_birth">
+                <img src="https://image.flaticon.com/icons/svg/34/34389.svg" alt="calander" width="30px">
+            </label> <br>
+            <input type="submit" value="register">
+        </fieldset>  
+      
+        </form>
+        <div id="inblock">
+                {% if messages %}
+                <ul class="redtext" id = "change" class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+                    </ul>
+                {% endif %}
+        </div>
+       
+        <form action="/login" method="POST" id="form2">
+                {% csrf_token %}
+                <fieldset id="loginform">
+                    <legend>login</legend>
+                
+                    <label for="email">
+                    Email:  <input type="text" name="email">
+                     </label><br><br>
+                    <label for="password">
+                    Password: <input type="password" name="password">
+                    </label> <br><br>
+                        <input type="submit" value="login">
+                </fieldset>
+        </form>
+
+    </div>
+
+    
+</body>
+</html>

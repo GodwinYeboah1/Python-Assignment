@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    
+    
+    #favorites{
+        border: 2px solid black;
+
+
+    }
+
+    #quotes{
+        border: 2px solid black;
+    }
+    </style>
+
+
+</head>
+<body>
+    <div id="wrapper">
+
+        <a href="/logout">logout</a>
+        <!--  add user here -->
+        <h1>Welcome, {{user.userName}}  </h1>
+     
+            <fieldset >
+            <!-- add favorites here  -->
+            <legend> Quotable Quotes</legend>
+                <p>quotes goes here</p>
+            <p>Posted By {{quotes.quoteby}}</p>
+                 <form action="">
+                        {% csrf_token %}
+                    <input type="submit" value="Add to Playlist">
+                 </form>
+            </fieldset>
+       
+
+            <!-- V==============================^ -->
+            <fieldset>
+            <!-- add favorites here  -->
+            <legend> Your Favorites</legend>
+                <p>favorites post goes here</p>
+            <p>Posted By </p>
+                <form action="">
+                        {% csrf_token %}
+                    <input type="submit" value="Remove From my Playlist">
+                </form>
+            </fieldset>
+        
+            <fieldset >
+
+                <legend>Contribute a quote: </legend>
+                <form action="{%url 'user_quotes'%}" method="POST" id="comment_form">
+                        {% csrf_token %}
+                    <label for="quoteBy">
+                      Quoted By: <input type="text" name="quoteBy"><br>
+                    <label for="messages"></label> <br>Messages: 
+                    <textarea rows="4" cols="50" name="comment" form="comment_form">
+                            Enter text here...
+                    </textarea>
+                    </label><br>
+                    <input type="submit" value="submit">
+                </form> 
+
+            </fieldset>
+
+    </div>
+
+
+</body>
+</html>

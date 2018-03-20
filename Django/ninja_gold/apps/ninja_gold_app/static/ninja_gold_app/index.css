@@ -1,0 +1,58 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+#wrapper{
+    border: 2px solid black;
+    width: 870px;
+    margin-left: 40px;
+    margin-top: 20px;
+    height: 90vh;
+    
+}
+#header{
+    /* this is for the header box */
+    /* border: 2px solid black; */
+    width: 700px;
+    display: inline-flex;
+    padding: 2px;
+    /* display: inline; */
+}
+#holding_number{
+    border: 2px solid black;
+    width: 150px;
+    margin-left: 30px;
+    padding: 2px;
+    /* text-align: center; */
+}
+
+#middle_section{
+    /* border: 2px solid black; */
+    width: 700px;
+    height: 60vh;
+    display: inline-flex;
+    /* margin-left: 30px; */
+}
+#footer{
+    border: 2px solid black;
+    width: 700px;
+    height: 20vh;
+    margin-left: 30px;
+}
+#set_content{
+    border: 2px solid black;
+    width: 120px;
+    height: 40vh;
+    display: inline-flex;
+    margin-left: 20px;
+    margin-top:20px;
+    /* padding: 1.95px; */
+    text-align: center;
+}
+#inside_content{
+    display: inline-block;
+    text-align: center;
+    padding: 4px;
+}

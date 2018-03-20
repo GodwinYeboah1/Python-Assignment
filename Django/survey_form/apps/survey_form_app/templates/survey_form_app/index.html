@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>survey_form_app</title>
+
+
+<!-- need this when using css/ it upload static files -->
+    {% load staticfiles %}
+
+    <link rel="stylesheet" href="{%static 'survey_form_app/index.css'%}">
+</head>
+<body>
+   
+
+    <div id="wrapper">
+        <div id="time_display">
+            {{current_time}}
+        </div>
+    <!-- everything needs to be in the form in order to process the informtion -->
+
+        <form action="/process" method="post">
+        <!--  add the secruity here  -->
+            {% csrf_token %}
+
+            <label for="name">Your Name: <input type="text" name="name"></label><br>
+            <!-- label for name  -->
+            <label for="location"> Dojo_location : 
+            <select name="location">
+                <option value="mountian view"> mountain view</option>
+                <option value="DC"> DC</option>
+                <option value="San jose"> san jose</option>
+                <option value="Dallas"> Dallas</option>
+                <option value="chicago"> chicago</option>
+                <option value="tulsa"> tulsa</option>
+                <option value="burbank"> burbank </option>
+            </select>
+            </label>
+            <br>
+
+            <label for="favorite_lang">Favorite Language :
+            <select name="favorite_lang" >
+                <option value="c++">c++</option>
+                <option value="java">java</option>
+                <option value="javascript">javascript</option>
+                <option value="python">python</option>
+                <option value="go">Go</option>
+            </select>
+                
+            <h3>Comment (optional):</h3>
+            <textarea name="comments" id="comments" cols="50" rows="10"></textarea> <br>
+            <input type="submit" value="submit" id="button">
+        </form>
+        
+    </div>
+</body>
+</html>

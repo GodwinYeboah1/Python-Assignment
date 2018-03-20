@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>result</title>
+
+    <!-- need this when using css/ it upload static files -->
+    {% load staticfiles %}
+
+   <link rel="stylesheet" href="{%static 'survey_form_app/result.css'%}">
+</head>
+
+<body>
+        <div id="alert_message">
+            Thanks for submittion this form! you have submitted this form {{request.session.counter}}times now.
+        </div>
+    <div id="wrapper">
+   
+    <!-- this is how you pull out data -->
+    <h2>Submitted Information </h2> <br>
+
+   
+    <p><b>Name</b> {{request.session.data.name}} </p>                      
+
+   
+    <p><b>Dojo Location:</b> {{request.session.data.location}} </p>                      
+    
+                
+    <p> <b>language:</b> {{request.session.data.favorite_lang}}</p> 
+
+    <p> <b>Comments:</b> {{request.session.data.comments}}</p> 
+
+    <form action="/">
+        <input type="submit" value="go back">
+    </form>
+    </div>                                 
+
+
+    <!-- {{request.session.data.location}} -->
+<!--    
+    {{request.session.data.name}} -->
+    
+    <!-- {{request.session.data.favorite_lang}} -->
+</div>
+    
+
+</body>
+</html>

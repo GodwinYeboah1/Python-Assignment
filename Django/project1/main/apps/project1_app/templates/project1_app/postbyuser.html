@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Quotes</title>
+    <link rel="stylesheet" href="{% static 'css/quotes.css' %}">
+  </head>
+  <body>
+            <ul>
+              <li><a href="/">Dashboard</a></li>
+            </ul>
+            <ul>
+              <li><a href="/">Logout</a></li>
+            </ul>
+         
+        <h1>Posts by:{{this_user.name}} </h1>
+        <p>Count:{{quotations | length}} </p>
+        {% for quotation in this_user.user_posts.all %}
+          <p> {{ quotation.author}}: {{quotation.message}}</p>
+        {% endfor %}
+       
+            <!-- the total amount  -->
+      
+      
+        
+        <!-- will need message and author -->
+     
+     
+    
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="{% static 'css/quotes.css' %}">
+    <style>
+      * {
+          box-sizing: border-box;
+      }
+      
+      body {
+          margin: 0;
+      }
+      
+      /* Create two equal columns that floats next to each other */
+      .column {
+          float: left;
+          width: 50%;
+          padding: 10px;
+          height: 600px; /* Should be removed. Only for demonstration */
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+          content: "";
+          display: table;
+          clear: both;
+      }
+      button {
+        float:right;
+      }
+      </style>
+  </head>
+  <body>
+      {% if messages %}
+      {% for message in messages %}
+        {{message}}
+      {% endfor %}
+    {% endif %}
+      
+    <h1>Welcome, {{request.session.name}} !</h1> 
+    <ul>
+        <li><a href="/">Logout</a></li>
+      </ul>
+      
+      <div class="row">
+        <div class="column" style="background-color:#aaa;">
+          <h3>Quotable Quotes</h3>
+          <fieldset>
+          {% if quotations %}
+            {% for quotation in quotations%}
+            <p>
+              {{ quotation.author}}: {{quotation.message}}
+              <br>
+              <em><h5>Posted by: <a href="/display_posts/{{quotation.posted_by.id}}">{{quotation.posted_by.name}}</a></h5></em><a href="/add_favorites/{{quotation.id}}"><button>Add to My List</button></a>
+              <br>
+            </p>
+              {% endfor %}
+            {% endif %}
+          </fieldset>
+        </div>
+        <div class="column" style="background-color:#bbb;">
+          
+            <h3>Your Favorite Quotes</h3>
+            <fieldset>
+            {% if quotations %}
+              {% for quotation in this_user.fav_quotes.all%}
+              <p>
+              {{ quotation.author}}: {{quotation.message}}
+                <br>
+                <em><h5>Posted by: <a href="/display_posts/{{quotation.posted_by.id}}">{{quotation.posted_by.name}}</a></h5></em>
+            <a href="/remove_favorites/{{quotation.id}}"><button>Remove From Favorites</button></a>
+                <br>
+             </p>
+              {% endfor %}
+            {% endif %}  
+          </fieldset>
+            <div>
+            <h3>Contribute a Quote</h3>
+            <form action="/add_quote" method="post">
+              {% csrf_token %}
+                <label>Quoted By</label>
+                <input type="text" name="author">
+                <br>
+                <label>Message</label>
+                <textarea type="text" name="message"></textarea>
+                <input type="submit" value="Submit Quote">
+            </form>
+            </div>
+        </div>
+      </div>
+            
+        
+      
+      
+      
+        <!-- use alias next to welcome -->
+        
+        
+         
+          <!-- get scrollbar -->
+          <!--  for quote in quotes  -->
+          <!-- Will need message and author -->
+           
+          
+            <!-- <em><h5>Posted by: <a href="/"></a></h5></em> -->
+            <!-- show posted by the alias name -->
+           
+            <!-- goes to add to list -->
+          
+          <!--  endfor  -->
+        
+        
+        
+       
+           
+            <!-- show message and author -->
+            <!-- <h5>Posted By: <a href="/"></a></h5> -->
+            <!-- goes to remove -->
+            
+          
+        
+
+      
+  </body>
+</html>

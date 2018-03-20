@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User page</title>
+
+
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+    <style>
+        #wrapper{
+            border: 2px solid black;
+            padding: 10px;
+            background: url('https://images2.alphacoders.com/693/693692.jpg')
+
+            /* background: url('http://hdwallpaper2013.com/wp-content/uploads/2013/02/Cool-Desktop-Backgrounds-HD-Wallpaper.jpg');
+
+            background: url('http://hdwallpaper2013.com/wp-content/uploads/2013/02/Cool-Designs-Wallpapers-for-Background-HD-Wallpaper.jpg'); */
+        }
+        body{
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+    <p>User Page </p>
+    <table>
+        <thead>
+            <tr>
+                <th>id </th>
+                <th>full name</th>
+                <th>email</th>
+                <th>Created at</th>
+                <th>actions</th>
+            </tr>
+         </thead>
+         <tbody>
+
+             {% for user in users %}
+            <tr>
+               
+                <td> {{user.id}} </td>
+                <td>{{user.first_name}} {{user.last_name}}   </td>
+                <td>{{user.email}} </td>
+                <td> {{user.created_at}}  </td>
+                <td> 
+                    <a href={%url 'show_user' id=user.id%}>show</a> 
+                </td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+<!-- reference a name route  using python code jing2 -->
+    <a href={% url 'new_user'%}> add a new user</a>
+</div>
+</body>
+</html>

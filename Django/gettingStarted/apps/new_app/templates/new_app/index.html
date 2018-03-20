@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>root</title>
+</head>
+<body>
+
+    <div id="formsection">
+        <h1>Home page create user</h1>
+        <form action="/create" method="POST">
+            {% csrf_token %}
+        Name:<input type="text" name="name">
+        Email:<input type="text" name="email">
+        Password:<input type="password" name="password">
+        <input type="submit" value="create">
+    </form>
+    </div>
+    <hr>
+</body>
+</html>

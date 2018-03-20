@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        #wrapper{
+            border-radius: 5px;
+        border: 2px solid black;
+        height: 80vh;
+        width: 860px;
+        margin-left: 30px;
+        background-color: brown;
+        
+        }
+        #scroll{
+            overflow: scroll;
+        }
+    
+        .v1{
+            border-left: 6px solid rgb(22, 24, 22);
+            height: 430px;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            top: 0;
+            } 
+        body
+        {
+            background : url('https://78.media.tumblr.com/ee98da65020e4ffc89c29b2f30f810b8/tumblr_o3dikz274b1upf2pto1_400.gif');
+
+        }
+        
+    
+    
+    </style>
+
+
+
+</head>
+<body>
+   
+    <div id="wrapper" id="">
+    <h2>Add a new word</h2>
+    <form action="/process" method="POST">
+            {% csrf_token %}
+        <input type="text" name="new_word">
+        <p>choose color</p>
+        <input type="radio" name="color" value="red">Red <br>
+        <input type="radio" name="color" value="green"> green <br>
+        <input type="radio" name="color" value="blue"> blue <br>
+        <input type="checkbox" name="font_size" value="big"> Show in Big Fonts! <br>
+        <input type="submit" value="Add to Session">
+    </form>
+    
+
+
+
+
+    <div class="v1" id="scroll">
+            <br>
+        <form action="logout">
+            
+            <input type="submit"  value=" logout"name="logout">
+        </form>
+            {% for info in request.session.data%}
+                {% if info.font_size == 'big'%}
+                <h1 style="color:{{info.color}};"> {{ info.new_word}}  <p>{{time}}</p></h1>
+            
+                {%else%}
+                    <p style="color:{{info.color}};">{{info.new_word}}</p>
+                {%endif%}
+            {%endfor%}
+
+
+    </div>
+
+
+</body>
+</html>

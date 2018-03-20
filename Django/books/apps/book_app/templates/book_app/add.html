@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h3>add a book and review </h3>
+    <a href="/">home</a> |
+    <a href="/logout">logout</a><br><br>
+    
+    <form action="book_review" action="POST">
+        {% csrf_token%}
+        Book title: <input type="text" name="book_title"><br>
+
+        Author : <br>
+        choose_from_ the List : 
+        <select name="" id="">
+            <option value="stephen">stpehen</option>
+            <option value="Vladimir Nabokov">Vladimir Nabokov</option>
+            <option value="F.Scott Fitzgerald">F.Scott Fitzgerald</option>
+            <option value="Marcel Proust">Marcel Proust</option>
+            <option value="James Joyce">James Joyce</option>
+            <option value="Gabriel Garcia Marquez">Gabriel Garcia Marquez</option>
+            <option value="William Faulkner">William Faulkner</option>
+            <option value="Virginia Woolf">Virginia Woolf</option>
+        </select><br>
+        or add New one: <input type="text" name="other"><br> <br>
+
+        review bellow  <br>
+        <textarea name="" id="" cols="30" rows="5"></textarea>
+        <br>
+        <p> rating:
+        <select name="">
+                <option > * </option>
+                <option > * </option>
+                <option  selected="true"> * </option>
+                <option > *</option>
+                <option > *</option>
+        </select>
+        stars
+        </p>
+        <input type="submit" value="review a book">
+
+    </form>
+
+
+
+
+</body>
+</html>

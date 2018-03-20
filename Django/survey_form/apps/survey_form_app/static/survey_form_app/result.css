@@ -1,0 +1,27 @@
+#alert_message{
+    background-color: lightgreen;
+    border: 2px solid black;
+    width: 640px;
+    height: 10vh;
+    margin-left: 200px;
+     text-align: center;
+    
+    
+}
+
+#wrapper{
+    border: 2px solid black;
+    width: 600px;
+    height: 70vh;
+    /* text-align: center; */
+    margin-left: 200px;
+    margin-top: 50px;
+    background-color: white;
+    padding: 20px;
+
+}
+#setBox{
+    border: 2px solid black;
+    /* display: inline; */
+    width: 600px;
+}

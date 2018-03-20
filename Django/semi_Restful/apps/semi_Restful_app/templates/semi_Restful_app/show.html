@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{data.first_name}}</title>
+
+
+
+
+    <style>
+        #wrapper{
+            border: 2px solid black;
+            padding: 10px;
+            background: url('https://lh3.ggpht.com/Zs4uWSdA0ZpBxhpBu1QZIubEUkjJ8DfAwB7_cmFHO4ZxBM5vxsJmyZWkdv_84BSe5ws=h900')
+
+            /* background: url('http://hdwallpaper2013.com/wp-content/uploads/2013/02/Cool-Desktop-Backgrounds-HD-Wallpaper.jpg'); */
+    
+            }
+            body{
+                background: black;
+            }
+
+            #btn{
+                color: crimson;
+            }
+
+        </style>
+</head>
+<body>
+<div id="wrapper">
+    <!-- this page display  all the user data that i store -->
+    <!-- route naming -->
+    <a id="btn"   href={%url 'all_user'%}>All user</a>
+    <h1 id="btn">{{data.id}}</h1>
+
+    <h5 id="btn">User : {{ data.id }}</h5>
+    <p id="btn">full name : {{data.first_name}} {{data.last_name}} </p>
+    <p id="btn">Email : {{data.email}}</p>
+    <p id="btn">created at: {{data.created_at}}</p>
+    <a href="" id="btn">edit </a>  <br>
+    <a href= {%url  'delete_user'%}> id="btn">Delete</a>
+</div>
+
+</body>
+</html>

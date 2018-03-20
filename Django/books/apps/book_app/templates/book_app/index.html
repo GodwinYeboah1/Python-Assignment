@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Welcome,  {{user.name}}</p>
+      
+    {%for user in all_user%}
+
+    {%endfor%}
+  
+    <h1>Recent book reviews</h1>
+    <a href="/add_book">add book and review </a> |
+    <a href="/logout">logout</a>
+    {% if messages %}
+    <ul  id = "change" class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<!-- this is how you got the info  -->
+<!-- 
+<table>
+     <tr>
+        <th>name</th>
+        <th> email </th>
+        <th> allias </th>
+        <th> password </th>
+    </tr>
+
+     all_user pulls out all the data 
+    {%for user in all_user%}
+    <tr>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.allias}}</td>
+        <td>{{user.password}}</td>
+    </tr>
+        {%endfor%}
+</table> -->
+    
+    
+</body>
+</html>
